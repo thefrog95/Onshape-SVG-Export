@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SVG Export</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>SVG Export</h1>
+
+    <section id="signin" hidden>
+      <p>Sign in to Onshape so the panel can read face geometry from this Part Studio.</p>
+      <button id="signin-button" type="button">Sign in with Onshape</button>
+    </section>
+
+    <section id="exporter" hidden>
+      <p class="hint" id="selection-hint">Select one or more planar faces in the graphics area.</p>
+      <ul id="selection" class="selection"></ul>
+
+      <fieldset>
+        <legend>Options</legend>
+        <label>Margin <span class="unit"><input id="margin" type="number" min="0" step="0.5" value="0"> mm</span></label>
+        <label>Stroke width <span class="unit"><input id="stroke" type="number" min="0.001" step="0.05" value="0.1"> mm</span></label>
+        <label class="check"><input id="combine" type="checkbox" checked> Combine coplanar faces into one file</label>
+        <label class="check"><input id="mirror" type="checkbox"> Mirror (view from the back)</label>
+      </fieldset>
+
+      <button id="export-button" type="button" disabled>Export SVG</button>
+      <p id="status" class="status" role="status"></p>
+      <div id="results" class="results"></div>
+    </section>
+
+    <p id="context-error" class="error" hidden>Open this panel from a Part Studio in Onshape.</p>
+  </main>
+  <script type="module" src="app.js"></script>
+</body>
+</html>

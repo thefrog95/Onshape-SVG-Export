@@ -1,0 +1,63 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --line: #d1d9e0;
+  --accent: #0b6bcb;
+  --accent-fg: #ffffff;
+  --error: #c62828;
+  --preview-bg: #f6f8fa;
+  color-scheme: light dark;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1b1f24;
+    --fg: #e6edf3;
+    --muted: #9198a1;
+    --line: #3d444d;
+    --accent: #4493f8;
+    --accent-fg: #0d1117;
+    --error: #ff7b72;
+    --preview-bg: #f6f8fa;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+main { padding: 12px; }
+h1 { font-size: 15px; margin: 0 0 12px; }
+.hint, .status { color: var(--muted); }
+.error, .face-error { color: var(--error); }
+.selection { list-style: none; padding: 0; margin: 0 0 12px; }
+.selection li { padding: 4px 8px; border: 1px solid var(--line); border-radius: 4px; margin-bottom: 4px; font-family: ui-monospace, monospace; }
+fieldset { border: 1px solid var(--line); border-radius: 6px; margin: 0 0 12px; padding: 8px 10px; }
+legend { color: var(--muted); padding: 0 4px; }
+label { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 6px 0; }
+label.check { justify-content: flex-start; }
+.unit { display: inline-flex; align-items: center; gap: 4px; }
+input[type=number] { width: 72px; padding: 3px 4px; background: var(--bg); color: var(--fg); border: 1px solid var(--line); border-radius: 4px; }
+button, .download {
+  display: inline-block;
+  border: 0;
+  border-radius: 6px;
+  padding: 7px 12px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+button:disabled { opacity: 0.5; cursor: default; }
+button.secondary { background: transparent; color: var(--accent); border: 1px solid var(--line); }
+.results { display: grid; gap: 12px; margin-top: 12px; }
+.result { border: 1px solid var(--line); border-radius: 6px; padding: 8px; }
+.result h2 { font-size: 13px; margin: 0 0 6px; }
+.result .preview { background: var(--preview-bg); border-radius: 4px; padding: 6px; display: flex; justify-content: center; }
+.result .preview img { max-width: 100%; max-height: 220px; width: auto; height: auto; }
+.result .meta { color: var(--muted); margin: 6px 0; }
+.result .actions { display: flex; gap: 8px; flex-wrap: wrap; }
